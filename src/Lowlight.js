@@ -1,3 +1,5 @@
+'use strict'
+
 var React = require('react')
 var low = require('lowlight/lib/core')
 var mapChildren = require('./mapChildren')

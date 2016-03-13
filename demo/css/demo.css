@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+pre {
+  margin: 0;
+}
+
+.input {
+  float: left;
+}
+
+.output {
+  float: right;
+}
+
+.input textarea, .output .out {
+  position: fixed;
+  padding: 5px;
+  top: 50px;
+  left: 0.5%;
+  bottom: 5px;
+  right: 51%;
+  width: 49%;
+  border: 1px solid #000;
+}
+
+.output .out {
+  left: auto;
+  width: 49%;
+  right: 0.5%;
+  background: #002b36;
+}

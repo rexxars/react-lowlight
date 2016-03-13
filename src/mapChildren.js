@@ -1,3 +1,5 @@
+'use strict'
+
 var React = require('react')
 
 function mapChild (child, i, depth) {
