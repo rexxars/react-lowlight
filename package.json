@@ -1,10 +1,15 @@
 {
   "name": "react-lowlight",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Super-thin React wrapper for lowlight (Syntax highlighting using VDOM)",
   "main": "src/Lowlight.js",
   "scripts": {
-    "test": "mocha"
+    "coverage": "istanbul cover node_modules/.bin/_mocha -- --reporter spec",
+    "lint": "eslint .",
+    "prepublish": "npm prune && npm test",
+    "posttest": "npm run lint",
+    "test": "mocha --reporter spec",
+    "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -22,5 +27,23 @@
   "bugs": {
     "url": "https://github.com/rexxars/react-lowlight/issues"
   },
-  "homepage": "https://github.com/rexxars/react-lowlight#readme"
+  "homepage": "https://github.com/rexxars/react-lowlight#readme",
+  "dependencies": {
+    "lowlight": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.4.0",
+    "eslint-config-bengler": "^1.0.7",
+    "eslint-config-standard": "^5.1.0",
+    "eslint-plugin-promise": "^1.1.0",
+    "eslint-plugin-standard": "^1.3.2",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.0"
+  }
 }
