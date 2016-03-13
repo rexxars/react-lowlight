@@ -1,0 +1,26 @@
+{
+  "name": "react-lowlight",
+  "version": "0.0.0",
+  "description": "Super-thin React wrapper for lowlight (Syntax highlighting using VDOM)",
+  "main": "src/Lowlight.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rexxars/react-lowlight.git"
+  },
+  "keywords": [
+    "react",
+    "highlight",
+    "syntax",
+    "lowlight",
+    "vdom"
+  ],
+  "author": "Espen Hovlandsdal <espen@hovlandsdal.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rexxars/react-lowlight/issues"
+  },
+  "homepage": "https://github.com/rexxars/react-lowlight#readme"
+}
