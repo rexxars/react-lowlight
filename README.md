@@ -8,7 +8,7 @@ Syntax highlighter for React, utilizing VDOM for efficient updates
 ## Installation
 
 ```
-npm install --save react-lowlight highlight.js`
+npm install --save react-lowlight highlight.js
 ```
 
 You'll also need to provide the [highlight.js](https://github.com/isagalaev/highlight.js/blob/master/docs/css-classes-reference.rst#language-names-and-aliases) language definitions you want to use. We don't bundle these in order to not bloat the component with unused definitions.
