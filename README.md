@@ -5,6 +5,8 @@ Syntax highlighter for React, utilizing VDOM for efficient updates
 * Thin wrapper on top of [lowlight](https://github.com/wooorm/lowlight) (Syntax highlighting using VDOM)
 * Lowlight uses [highlight.js](https://github.com/isagalaev/highlight.js) under the hood, thus supports all the same syntaxes
 
+Feel free to check out a [super-simple demo](http://rexxars.github.io/react-lowlight/).
+
 ## Installation
 
 ```
@@ -34,6 +36,14 @@ ReactDOM.render(
 ```
 
 Note that the `language` property is optional, but significantly increases the speed and reliability of rendering.
+
+## Styling
+
+Stylesheets are not automatically handled for you - but there is [a bunch of premade styles](https://github.com/isagalaev/highlight.js/tree/master/src/styles) for highlight.js which you can simply drop in and they'll "just work". You can either grab these from the source, of pull them in using a CSS loader - whatever works best for you. They're also available on [cdnjs](https://cdnjs.com/libraries/highlight.js):
+
+```html
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+```
 
 ## Props
 
