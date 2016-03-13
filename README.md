@@ -2,6 +2,8 @@
 
 Syntax highlighter for React, utilizing VDOM for efficient updates
 
+[![npm version](http://img.shields.io/npm/v/react-lowlight.svg?style=flat-square)](http://browsenpm.org/package/react-lowlight)[![Build Status](http://img.shields.io/travis/rexxars/react-lowlight/master.svg?style=flat-square)](https://travis-ci.org/rexxars/react-lowlight)
+
 * Thin wrapper on top of [lowlight](https://github.com/wooorm/lowlight) (Syntax highlighting using VDOM)
 * Lowlight uses [highlight.js](https://github.com/isagalaev/highlight.js) under the hood, thus supports all the same syntaxes
 
