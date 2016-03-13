@@ -6,6 +6,7 @@ Syntax highlighter for React, utilizing VDOM for efficient updates
 
 * Thin wrapper on top of [lowlight](https://github.com/wooorm/lowlight) (Syntax highlighting using VDOM)
 * Lowlight uses [highlight.js](https://github.com/isagalaev/highlight.js) under the hood, thus supports all the same syntaxes
+* About ~18KB (6.5KB gziped) when using a single language syntax. Each language tends to pack on another ~2KB uncompressed.
 
 Feel free to check out a [super-simple demo](http://rexxars.github.io/react-lowlight/).
 
