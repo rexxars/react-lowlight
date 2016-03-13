@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Super-thin React wrapper for lowlight (Syntax highlighting using VDOM)",
   "main": "src/Lowlight.js",
+  "umd": "umd/Lowlight.min.js",
   "scripts": {
     "build": "npm run build:umd && npm run build:prod && npm run build:demo:prod",
     "build:umd": "webpack src/Lowlight.js umd/Lowlight.js",
