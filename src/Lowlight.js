@@ -2,16 +2,30 @@ var React = require('react')
 var low = require('lowlight/lib/core')
 var mapChildren = require('./mapChildren')
 
+var registeredLanguages = 0
+
 function Lowlight (props) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (!props.language && registeredLanguages === 0) {
+      console.warn(
+        'No language definitions seems to be registered, ' +
+        'did you forget to call `Lowlight.registerLanguage`?'
+      )
+    }
+  }
+
   var result = props.language
     ? low.highlight(props.language, props.value, {prefix: props.prefix})
     : low.highlightAuto(props.value, {prefix: props.prefix, subset: props.subset})
 
-  var preOpts = props.className ? {className: props.className} : null
+  var codeProps = result.language
+    ? {className: 'hljs ' + result.language}
+    : {className: 'hljs'}
+
   return (
-    React.createElement('pre', preOpts,
-      React.createElement('code', null,
-        result.value.map(mapChildren)
+    React.createElement('pre', {className: props.className},
+      React.createElement('code', codeProps,
+        result.value.map(mapChildren.depth(0))
       )
     )
   )
@@ -30,6 +44,9 @@ Lowlight.defaultProps = {
   prefix: 'hljs-'
 }
 
-Lowlight.registerLanguage = low.registerLanguage
+Lowlight.registerLanguage = function () {
+  registeredLanguages++
+  low.registerLanguage.apply(low, arguments)
+}
 
 module.exports = Lowlight
