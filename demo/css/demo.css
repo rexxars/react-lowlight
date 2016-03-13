@@ -11,12 +11,9 @@ pre {
   margin: 0;
 }
 
-.input {
+.input, .output {
   float: left;
-}
-
-.output {
-  float: right;
+  width: 50%;
 }
 
 .input textarea, .output .out {
