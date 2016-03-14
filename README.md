@@ -23,7 +23,8 @@ You'll also need to provide the [highlight.js](https://github.com/isagalaev/high
 ```js
 import Lowlight from 'react-lowlight'
 
-// Load any languages you want to use (see https://github.com/isagalaev/highlight.js/tree/master/src/languages)
+// Load any languages you want to use
+// (see https://github.com/isagalaev/highlight.js/tree/master/src/languages)
 import js from 'highlight.js/lib/languages/javascript'
 
 // Then register them with lowlight
@@ -45,7 +46,10 @@ Note that the `language` property is optional, but significantly increases the s
 Stylesheets are not automatically handled for you - but there is [a bunch of premade styles](https://github.com/isagalaev/highlight.js/tree/master/src/styles) for highlight.js which you can simply drop in and they'll "just work". You can either grab these from the source, of pull them in using a CSS loader - whatever works best for you. They're also available on [cdnjs](https://cdnjs.com/libraries/highlight.js):
 
 ```html
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+<link
+  rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css"
+/>
 ```
 
 ## Props
