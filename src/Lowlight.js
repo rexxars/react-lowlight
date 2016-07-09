@@ -3,6 +3,7 @@
 var React = require('react')
 var low = require('lowlight/lib/core')
 var mapChildren = require('./mapChildren')
+var h = React.createElement
 
 var registeredLanguages = 0
 
@@ -24,25 +25,26 @@ function Lowlight (props) {
     ? {className: 'hljs ' + result.language}
     : {className: 'hljs'}
 
-  return (
-    React.createElement('pre', {className: props.className},
-      React.createElement('code', codeProps,
-        result.value.map(mapChildren.depth(0))
-      )
-    )
-  )
+  if (props.inline) {
+    codeProps.style = {display: 'inline'}
+  }
+
+  var code = h('code', codeProps, result.value.map(mapChildren.depth(0)))
+  return props.inline ? code : h('pre', {className: props.className}, code)
 }
 
 Lowlight.propTypes = {
   className: React.PropTypes.string,
+  inline: React.PropTypes.bool,
   language: React.PropTypes.string,
-  value: React.PropTypes.string.isRequired,
   prefix: React.PropTypes.string,
-  subset: React.PropTypes.arrayOf(React.PropTypes.string)
+  subset: React.PropTypes.arrayOf(React.PropTypes.string),
+  value: React.PropTypes.string.isRequired
 }
 
 Lowlight.defaultProps = {
   className: 'lowlight',
+  inline: false,
   prefix: 'hljs-'
 }
 

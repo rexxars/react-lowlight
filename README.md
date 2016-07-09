@@ -61,6 +61,7 @@ Stylesheets are not automatically handled for you - but there is [a bunch of pre
 | `value`     | The code snippet to syntax highlight                                                   |
 | `prefix`    | Class name prefix for individual node. Default: `hljs-`                                |
 | `subset`    | Array of languages to limit the auto-detection to.                                     |
+| `inline`    | Whether code should be displayed inline (no `&lt;pre&gt;` tag, sets `display: inline`) |
 
 ## Dynamic loading
 
