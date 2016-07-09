@@ -62,6 +62,10 @@ Stylesheets are not automatically handled for you - but there is [a bunch of pre
 | `prefix`    | Class name prefix for individual node. Default: `hljs-`                                |
 | `subset`    | Array of languages to limit the auto-detection to.                                     |
 
+## Dynamic loading
+
+You can use `Lowlight.hasLanguage(language)` to check if a language has been registered. Combining this with Webpack's [code splitting abilities](https://webpack.github.io/docs/code-splitting.html) (or something similar), you should be able to load definitions for languages on the fly.
+
 ## License
 
 MIT-licensed. See LICENSE.

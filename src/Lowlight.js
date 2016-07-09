@@ -51,4 +51,8 @@ Lowlight.registerLanguage = function () {
   low.registerLanguage.apply(low, arguments)
 }
 
+Lowlight.hasLanguage = function (lang) {
+  return !!low.getLanguage(lang)
+}
+
 module.exports = Lowlight
