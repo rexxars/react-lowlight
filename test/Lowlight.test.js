@@ -8,10 +8,11 @@ var expect = require('chai').expect
 var Lowlight = require('../')
 
 var describe = mocha.describe
+var before = mocha.before
 var it = mocha.it
 
 describe('react-lowlight', function () {
-  it('should warn if trying to use unloaded language', function () {
+  before('should warn if trying to use unloaded language', function () {
     var inspect = stderr.inspect()
 
     expect(render({value: ''}, {withWrapper: true})).to.equal(
@@ -24,7 +25,7 @@ describe('react-lowlight', function () {
     ])
   })
 
-  it('should allow registering languages through API', function () {
+  before('should allow registering languages through API', function () {
     Lowlight.registerLanguage('js', js)
     Lowlight.registerLanguage('haml', haml)
   })
@@ -48,6 +49,13 @@ describe('react-lowlight', function () {
   it('should use the specified language', function () {
     expect(render({value: '', language: 'haml'}, {withWrapper: true})).to.equal(
       '<pre class="lowlight"><code class="hljs haml"></code></pre>'
+    )
+  })
+
+  it('should render value as-is if unable to highlight in auto mode', function () {
+    const code = 'StoriesController stories = client.Stories;\n'
+    expect(render({value: code}, {withWrapper: true})).to.equal(
+      '<pre class="lowlight"><code class="hljs">' + code + '</code></pre>'
     )
   })
 })
