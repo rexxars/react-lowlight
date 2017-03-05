@@ -1710,7 +1710,11 @@ function Lowlight (props) {
     codeProps.style = {display: 'inline'}
   }
 
-  var code = h('code', codeProps, result.value.map(mapChildren.depth(0)))
+  var value = result.value.length === 0
+    ? props.value
+    : result.value.map(mapChildren.depth(0))
+
+  var code = h('code', codeProps, value)
   return props.inline ? code : h('pre', {className: props.className}, code)
 }
 
