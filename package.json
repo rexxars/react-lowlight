@@ -12,7 +12,7 @@
     "build:prod": "NODE_ENV=production webpack -p src/Lowlight.js umd/Lowlight.min.js",
     "coverage": "istanbul cover node_modules/.bin/_mocha -- --reporter spec",
     "lint": "standard",
-    "prepublish": "in-publish && npm run prunetest || not-in-publish",
+    "prepublish": "in-publish && npm run prunetest && npm run build || not-in-publish",
     "posttest": "npm run lint",
     "prunetest": "npm prune && npm run test",
     "test": "mocha --reporter spec",
