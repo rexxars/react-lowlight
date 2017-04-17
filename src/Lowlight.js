@@ -1,6 +1,7 @@
 'use strict'
 
 var React = require('react')
+var PropTypes = require('prop-types')
 var low = require('lowlight/lib/core')
 var mapChildren = require('./mapChildren')
 var h = React.createElement
@@ -38,12 +39,12 @@ function Lowlight (props) {
 }
 
 Lowlight.propTypes = {
-  className: React.PropTypes.string,
-  inline: React.PropTypes.bool,
-  language: React.PropTypes.string,
-  prefix: React.PropTypes.string,
-  subset: React.PropTypes.arrayOf(React.PropTypes.string),
-  value: React.PropTypes.string.isRequired
+  className: PropTypes.string,
+  inline: PropTypes.bool,
+  language: PropTypes.string,
+  prefix: PropTypes.string,
+  subset: PropTypes.arrayOf(PropTypes.string),
+  value: PropTypes.string.isRequired
 }
 
 Lowlight.defaultProps = {
