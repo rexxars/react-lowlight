@@ -37,7 +37,8 @@
   "homepage": "https://github.com/rexxars/react-lowlight#readme",
   "dependencies": {
     "in-publish": "^2.0.0",
-    "lowlight": "^1.0.0"
+    "lowlight": "^1.0.0",
+    "prop-types": "^15.5.8"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -46,8 +47,7 @@
     "mocha": "^3.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "prop-types": "^15.5.8",
-    "standard": "^9.0.0",
+    "standard": "^10.0.2",
     "test-console": "^1.0.0",
     "webpack": "^2.2.1"
   },
