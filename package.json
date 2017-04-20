@@ -1,6 +1,6 @@
 {
   "name": "react-lowlight",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Super-thin React wrapper for lowlight (Syntax highlighting using VDOM)",
   "main": "src/Lowlight.js",
   "umd": "umd/Lowlight.min.js",
