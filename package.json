@@ -1,6 +1,6 @@
 {
   "name": "react-lowlight",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Super-thin React wrapper for lowlight (Syntax highlighting using VDOM)",
   "main": "src/Lowlight.js",
   "umd": "umd/Lowlight.min.js",
@@ -12,9 +12,8 @@
     "build:prod": "NODE_ENV=production webpack -p src/Lowlight.js umd/Lowlight.min.js",
     "coverage": "istanbul cover node_modules/.bin/_mocha -- --reporter spec",
     "lint": "standard",
-    "prepublish": "in-publish && npm run prunetest && npm run build || not-in-publish",
+    "prepublishOnly": "npm test && npm run build",
     "posttest": "npm run lint",
-    "prunetest": "npm prune && npm run test",
     "test": "mocha --reporter spec",
     "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec"
   },
@@ -36,7 +35,6 @@
   },
   "homepage": "https://github.com/rexxars/react-lowlight#readme",
   "dependencies": {
-    "in-publish": "^2.0.0",
     "lowlight": "^1.0.0",
     "prop-types": "^15.5.8"
   },
