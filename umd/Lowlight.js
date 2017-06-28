@@ -1063,7 +1063,7 @@ var lineNumberify = function lineNumberify (ast) {
       for (var i = 0; i < lines.length; i++) {
         result.nodes.push({
           type: 'text',
-          value: lines[i],
+          value: i === lines.length - 1 ? lines[i] : lines[i] + '\n',
           lineNumber: i === 0 ? lineNumber : ++lineNumber
         })
       }

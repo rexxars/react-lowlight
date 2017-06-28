@@ -63,11 +63,11 @@ describe('react-lowlight', function () {
     const code = '{\n  title: "Sanity",\n  url: "https://sanity.io/"\n}\n'
     const markers = [2, {line: 3, className: 'url'}]
     expect(render({value: code, markers}, {withWrapper: true})).to.equal([
-      '<pre class="lowlight"><code class="hljs js">{<div class="hljs-marker">',
+      '<pre class="lowlight"><code class="hljs js">{\n<div class="hljs-marker">',
       '  <span class="hljs-attr">title</span>: <span class="hljs-string">',
-      '&quot;Sanity&quot;</span>,</div><div class="url">  ',
+      '&quot;Sanity&quot;</span>,\n</div><div class="url">  ',
       '<span class="hljs-attr">url</span>: <span class="hljs-string">',
-      '&quot;https://sanity.io/&quot;</span></div>}</code></pre>'
+      '&quot;https://sanity.io/&quot;</span>\n</div>}\n</code></pre>'
     ].join(''))
   })
 })
