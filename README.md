@@ -52,16 +52,19 @@ Stylesheets are not automatically handled for you - but there is [a bunch of pre
 />
 ```
 
+Note that when using the `markers` feature, there is an additional class name called `hljs-marker` which is not defined by highlight js as it's not a part of its feature set. You can either set it yourself, or you can explicitly set class names on markers.
+
 ## Props
 
-| Name        | Description                                                                            |
-|:------------|:---------------------------------------------------------------------------------------|
-| `className` | Class name for the outermost `pre` tag. Default: `lowlight`                            |
-| `language`  | Language to use for syntax highlighting this value. Must be registered prior to usage. |
-| `value`     | The code snippet to syntax highlight                                                   |
-| `prefix`    | Class name prefix for individual node. Default: `hljs-`                                |
-| `subset`    | Array of languages to limit the auto-detection to.                                     |
-| `inline`    | Whether code should be displayed inline (no `<pre>` tag, sets `display: inline`)       |
+| Name        | Description                                                                               |
+|:------------|:------------------------------------------------------------------------------------------|
+| `className` | Class name for the outermost `pre` tag. Default: `lowlight`                               |
+| `language`  | Language to use for syntax highlighting this value. Must be registered prior to usage.    |
+| `value`     | The code snippet to syntax highlight                                                      |
+| `prefix`    | Class name prefix for individual node. Default: `hljs-`                                   |
+| `subset`    | Array of languages to limit the auto-detection to.                                        |
+| `inline`    | Whether code should be displayed inline (no `<pre>` tag, sets `display: inline`)          |
+| `markers`   | Array of lines to mark. Can also be specified in `{line: <num>, className: <class>}` form |
 
 ## Dynamic loading
 
