@@ -35,19 +35,19 @@
   },
   "homepage": "https://github.com/rexxars/react-lowlight#readme",
   "dependencies": {
-    "lowlight": "^1.0.0",
-    "prop-types": "^15.5.8"
+    "lowlight": "^1.9.1",
+    "prop-types": "^15.6.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "highlight.js": "^9.1.0",
+    "chai": "^4.1.2",
+    "highlight.js": "^9.12.0",
     "istanbul": "^0.4.2",
-    "mocha": "^3.2.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "standard": "^10.0.2",
-    "test-console": "^1.0.0",
-    "webpack": "^2.2.1"
+    "mocha": "^5.0.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "standard": "^10.0.3",
+    "test-console": "^1.1.0",
+    "webpack": "^3.11.0"
   },
   "peerDependencies": {
     "highlight.js": "^9.1.0",

@@ -39,16 +39,27 @@ describe('react-lowlight', function () {
   it('should render simple JS snippet correct', function () {
     expect(render({value: '"use strict";'}, {withWrapper: true})).to.equal(
       '<pre class="lowlight">' +
-      '<code class="hljs js">' +
-      '<span class="hljs-meta">&quot;use strict&quot;</span>;' +
-      '</code>' +
-      '</pre>'
+        '<code class="hljs js">' +
+        '<span class="hljs-meta">&quot;use strict&quot;</span>;' +
+        '</code>' +
+        '</pre>'
     )
   })
 
   it('should use the specified language', function () {
     expect(render({value: '', language: 'haml'}, {withWrapper: true})).to.equal(
       '<pre class="lowlight"><code class="hljs haml"></code></pre>'
+    )
+  })
+
+  it('should be able to render inline', function () {
+    expect(
+      render(
+        {value: 'var foo = "bar"', language: 'js', inline: true, className: 'moop'},
+        {withWrapper: true}
+      )
+    ).to.equal(
+      '<code class="moop" style="display:inline"><span class="hljs-keyword">var</span> foo = <span class="hljs-string">&quot;bar&quot;</span></code>'
     )
   })
 
@@ -62,13 +73,15 @@ describe('react-lowlight', function () {
   it('should be able to highlight specific lines with markers', function () {
     const code = '{\n  title: "Sanity",\n  url: "https://sanity.io/"\n}\n'
     const markers = [2, {line: 3, className: 'url'}]
-    expect(render({value: code, markers}, {withWrapper: true})).to.equal([
-      '<pre class="lowlight"><code class="hljs js">{\n<div class="hljs-marker">',
-      '  <span class="hljs-attr">title</span>: <span class="hljs-string">',
-      '&quot;Sanity&quot;</span>,\n</div><div class="url">  ',
-      '<span class="hljs-attr">url</span>: <span class="hljs-string">',
-      '&quot;https://sanity.io/&quot;</span>\n</div>}\n</code></pre>'
-    ].join(''))
+    expect(render({value: code, markers}, {withWrapper: true})).to.equal(
+      [
+        '<pre class="lowlight"><code class="hljs js">{\n<div class="hljs-marker">',
+        '  <span class="hljs-attr">title</span>: <span class="hljs-string">',
+        '&quot;Sanity&quot;</span>,\n</div><div class="url">  ',
+        '<span class="hljs-attr">url</span>: <span class="hljs-string">',
+        '&quot;https://sanity.io/&quot;</span>\n</div>}\n</code></pre>'
+      ].join('')
+    )
   })
 })
 

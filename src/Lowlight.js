@@ -14,7 +14,7 @@ function Lowlight (props) {
     if (!props.language && registeredLanguages === 0) {
       console.warn(
         'No language definitions seems to be registered, ' +
-        'did you forget to call `Lowlight.registerLanguage`?'
+          'did you forget to call `Lowlight.registerLanguage`?'
       )
     }
   }
@@ -23,12 +23,11 @@ function Lowlight (props) {
     ? low.highlight(props.language, props.value, {prefix: props.prefix})
     : low.highlightAuto(props.value, {prefix: props.prefix, subset: props.subset})
 
-  var codeProps = result.language
-    ? {className: 'hljs ' + result.language}
-    : {className: 'hljs'}
+  var codeProps = result.language ? {className: 'hljs ' + result.language} : {className: 'hljs'}
 
   if (props.inline) {
     codeProps.style = {display: 'inline'}
+    codeProps.className = props.className
   }
 
   var ast = result.value
@@ -36,9 +35,7 @@ function Lowlight (props) {
     ast = addMarkers(ast, {prefix: props.prefix, markers: props.markers})
   }
 
-  var value = ast.length === 0
-    ? props.value
-    : ast.map(mapChildren.depth(0))
+  var value = ast.length === 0 ? props.value : ast.map(mapChildren.depth(0))
 
   var code = h('code', codeProps, value)
   return props.inline ? code : h('pre', {className: props.className}, code)
