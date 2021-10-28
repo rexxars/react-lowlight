@@ -1,10 +1,8 @@
-'use strict'
-
-const React = require('react')
+import { createElement } from 'react'
 
 function mapChild (child, i, depth) {
   if (child.tagName) {
-    return React.createElement(
+    return createElement(
       child.tagName,
       assign({ key: 'lo-' + depth + '-' + i }, child.properties),
       child.children && child.children.map(mapWithDepth(depth + 1))
@@ -28,4 +26,6 @@ function assign (dst, src) {
   return dst
 }
 
-exports.depth = mapWithDepth
+export default {
+  depth: mapWithDepth
+}
