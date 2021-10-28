@@ -1,11 +1,9 @@
-'use strict'
+import { createElement as h } from 'react'
+import PropTypes from 'prop-types'
+import { lowlight as low } from 'lowlight'
 
-const React = require('react')
-const PropTypes = require('prop-types')
-const low = require('lowlight/lib/core')
-const mapChildren = require('./mapChildren')
-const addMarkers = require('./addMarkers')
-const h = React.createElement
+import mapChildren from './mapChildren.js'
+import addMarkers from './addMarkers.js'
 
 let registeredLanguages = 0
 
@@ -14,7 +12,7 @@ function Lowlight (props) {
     if (!props.language && registeredLanguages === 0) {
       console.warn(
         'No language definitions seems to be registered, ' +
-          'did you forget to call `Lowlight.registerLanguage`?'
+        'did you forget to call `Lowlight.registerLanguage`?'
       )
     }
   }
@@ -23,14 +21,14 @@ function Lowlight (props) {
     ? low.highlight(props.language, props.value, { prefix: props.prefix })
     : low.highlightAuto(props.value, { prefix: props.prefix, subset: props.subset })
 
-  const codeProps = result.language ? { className: 'hljs ' + result.language } : { className: 'hljs' }
+  const codeProps = result.data.language ? { className: 'hljs ' + result.data.language } : { className: 'hljs' }
 
   if (props.inline) {
     codeProps.style = { display: 'inline' }
     codeProps.className = props.className
   }
 
-  let ast = result.value
+  let ast = result.children
   if (props.markers && props.markers.length > 0) {
     ast = addMarkers(ast, { prefix: props.prefix, markers: props.markers })
   }
@@ -74,4 +72,4 @@ Lowlight.hasLanguage = function (lang) {
   return !!low.getLanguage(lang)
 }
 
-module.exports = Lowlight
+export default Lowlight

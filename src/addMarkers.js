@@ -1,5 +1,3 @@
-'use strict'
-
 const lineNumberify = function lineNumberify (ast) {
   let lineNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1
 
@@ -77,7 +75,7 @@ const wrapLines = function wrapLines (ast, markers, options) {
   return wrapped
 }
 
-module.exports = function (ast, options) {
+export default function (ast, options) {
   const markers = options.markers.map(function (marker) {
     return marker.line ? marker : { line: marker }
   }).sort(function (nodeA, nodeB) {

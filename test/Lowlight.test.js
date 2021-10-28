@@ -1,15 +1,12 @@
-const React = require('react')
-const mocha = require('mocha')
-const stderr = require('test-console').stderr
-const ReactDOM = require('react-dom/server')
-const js = require('highlight.js/lib/languages/javascript')
-const haml = require('highlight.js/lib/languages/haml')
-const expect = require('chai').expect
-const Lowlight = require('../')
+import React from 'react'
+import { describe, before, it } from 'mocha'
+import { stderr } from 'test-console'
+import ReactDOM from 'react-dom/server.js'
+import { expect } from 'chai'
+import javascript from 'highlight.js/lib/languages/javascript'
+import haml from 'highlight.js/lib/languages/haml'
 
-const describe = mocha.describe
-const before = mocha.before
-const it = mocha.it
+import Lowlight from '../src/Lowlight.js'
 
 describe('react-lowlight', function () {
   before('should warn if trying to use unloaded language', function () {
@@ -26,7 +23,7 @@ describe('react-lowlight', function () {
   })
 
   before('should allow registering languages through API', function () {
-    Lowlight.registerLanguage('js', js)
+    Lowlight.registerLanguage('js', javascript)
     Lowlight.registerLanguage('haml', haml)
   })
 
@@ -39,10 +36,10 @@ describe('react-lowlight', function () {
   it('should render simple JS snippet correct', function () {
     expect(render({ value: '"use strict";' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight">' +
-        '<code class="hljs js">' +
-        '<span class="hljs-meta">&quot;use strict&quot;</span>;' +
-        '</code>' +
-        '</pre>'
+      '<code class="hljs javascript">' +
+      '<span class="hljs-meta">&quot;use strict&quot;</span>;' +
+      '</code>' +
+      '</pre>'
     )
   })
 
@@ -64,7 +61,7 @@ describe('react-lowlight', function () {
   })
 
   it('should render value as-is if unable to highlight in auto mode', function () {
-    const code = 'StoriesController stories = client.Stories;\n'
+    const code = 'StoriesController stories'
     expect(render({ value: code }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs">' + code + '</code></pre>'
     )
@@ -73,7 +70,7 @@ describe('react-lowlight', function () {
   it('should be able to highlight specific lines with markers', function () {
     const code = '{\n  title: "Sanity",\n  url: "https://sanity.io/"\n}\n'
     const markers = [2, { line: 3, className: 'url' }]
-    expect(render({ value: code, markers }, { withWrapper: true })).to.equal(
+    expect(render({ value: code, markers, language: 'js' }, { withWrapper: true })).to.equal(
       [
         '<pre class="lowlight"><code class="hljs js">{\n<div class="hljs-marker">',
         '  <span class="hljs-attr">title</span>: <span class="hljs-string">',
