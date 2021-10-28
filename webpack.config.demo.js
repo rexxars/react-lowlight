@@ -1,16 +1,16 @@
 'use strict'
 
-var webpack = require('webpack')
-var path = require('path')
+const webpack = require('webpack')
+const path = require('path')
 
-var config = {
+const config = {
   entry: path.join(__dirname, 'demo', 'js', 'demo.js'),
   output: {
     path: path.join(__dirname, 'demo', 'js'),
     filename: 'demo.min.js'
   },
   externals: {
-    'react': 'React',
+    react: 'React',
     'react-dom': 'ReactDOM'
   },
   plugins: [

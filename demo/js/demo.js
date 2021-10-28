@@ -1,19 +1,19 @@
 'use strict'
 
-var React = require('react')
-var ReactDOM = require('react-dom')
-var Lowlight = require('../../')
-var $ = React.createElement
+const React = require('react')
+const ReactDOM = require('react-dom')
+const Lowlight = require('../../')
+const $ = React.createElement
 
 Lowlight.registerLanguage('js', require('highlight.js/lib/languages/javascript'))
 
-var defaultValue = getDefaultValue()
+const defaultValue = getDefaultValue()
 
-var DemoApp = React.createClass({
+const DemoApp = React.createClass({
   displayName: 'ReactLowlightDemo',
 
   getInitialState: function () {
-    return {value: defaultValue}
+    return { value: defaultValue }
   },
 
   setValue: function (e) {
@@ -25,7 +25,7 @@ var DemoApp = React.createClass({
   render: function () {
     return $('div', null,
       // Input
-      $('div', {className: 'input'},
+      $('div', { className: 'input' },
         $('h1', null, 'Input'),
         $('textarea', {
           defaultValue: defaultValue,
@@ -34,17 +34,17 @@ var DemoApp = React.createClass({
       ),
 
       // Output
-      $('div', {className: 'output'},
+      $('div', { className: 'output' },
         $('h1', null, 'Output'),
-        $('div', {className: 'out'},
-          $(Lowlight, {value: this.state.value, language: 'js'})
+        $('div', { className: 'out' },
+          $(Lowlight, { value: this.state.value, language: 'js' })
         )
       )
     )
   }
 })
 
-var Demo = React.createFactory(DemoApp)
+const Demo = React.createFactory(DemoApp)
 
 ReactDOM.render(
   Demo(),

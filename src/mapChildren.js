@@ -1,12 +1,12 @@
 'use strict'
 
-var React = require('react')
+const React = require('react')
 
 function mapChild (child, i, depth) {
   if (child.tagName) {
     return React.createElement(
       child.tagName,
-      assign({key: 'lo-' + depth + '-' + i}, child.properties),
+      assign({ key: 'lo-' + depth + '-' + i }, child.properties),
       child.children && child.children.map(mapWithDepth(depth + 1))
     )
   }
@@ -21,7 +21,7 @@ function mapWithDepth (depth) {
 }
 
 function assign (dst, src) {
-  for (var key in src) {
+  for (const key in src) {
     dst[key] = src[key]
   }
 

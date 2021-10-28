@@ -1,7 +1,7 @@
 'use strict'
 
-var lineNumberify = function lineNumberify (ast) {
-  var lineNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1
+const lineNumberify = function lineNumberify (ast) {
+  let lineNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1
 
   return ast.reduce(function (result, node) {
     if (node.type === 'text') {
@@ -11,8 +11,8 @@ var lineNumberify = function lineNumberify (ast) {
         return result
       }
 
-      var lines = node.value.split('\n')
-      for (var i = 0; i < lines.length; i++) {
+      const lines = node.value.split('\n')
+      for (let i = 0; i < lines.length; i++) {
         result.nodes.push({
           type: 'text',
           value: i === lines.length - 1 ? lines[i] : lines[i] + '\n',
@@ -26,7 +26,7 @@ var lineNumberify = function lineNumberify (ast) {
 
     if (node.children) {
       node.lineNumber = lineNumber
-      var processed = lineNumberify(node.children, lineNumber)
+      const processed = lineNumberify(node.children, lineNumber)
       node.children = processed.nodes
       result.lineNumber = processed.lineNumber
       result.nodes.push(node)
@@ -35,14 +35,14 @@ var lineNumberify = function lineNumberify (ast) {
 
     result.nodes.push(node)
     return result
-  }, {nodes: [], lineNumber: lineNumber})
+  }, { nodes: [], lineNumber: lineNumber })
 }
 
-var wrapLines = function wrapLines (ast, markers, options) {
-  var i = 0
-  var wrapped = markers.reduce(function (nodes, marker) {
-    var line = marker.line
-    var children = []
+const wrapLines = function wrapLines (ast, markers, options) {
+  let i = 0
+  const wrapped = markers.reduce(function (nodes, marker) {
+    const line = marker.line
+    const children = []
     for (; i < ast.length; i++) {
       if (ast[i].lineNumber < line) {
         nodes.push(ast[i])
@@ -62,7 +62,7 @@ var wrapLines = function wrapLines (ast, markers, options) {
     nodes.push({
       type: 'element',
       tagName: 'div',
-      properties: {className: [marker.className || (options.prefix + 'marker')]},
+      properties: { className: [marker.className || (options.prefix + 'marker')] },
       children: children,
       lineNumber: line
     })
@@ -78,13 +78,13 @@ var wrapLines = function wrapLines (ast, markers, options) {
 }
 
 module.exports = function (ast, options) {
-  var markers = options.markers.map(function (marker) {
-    return marker.line ? marker : {line: marker}
+  const markers = options.markers.map(function (marker) {
+    return marker.line ? marker : { line: marker }
   }).sort(function (nodeA, nodeB) {
     return nodeA.line - nodeB.line
   })
 
-  var numbered = lineNumberify(ast).nodes
-  var wrapped = wrapLines(numbered, markers, options)
+  const numbered = lineNumberify(ast).nodes
+  const wrapped = wrapLines(numbered, markers, options)
   return wrapped
 }
