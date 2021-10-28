@@ -1,8 +1,9 @@
-import React from 'react'
 import { describe, before, it } from 'mocha'
-import { stderr } from 'test-console'
+import React from 'react'
 import ReactDOM from 'react-dom/server.js'
+import { stderr } from 'test-console'
 import { expect } from 'chai'
+
 import javascript from 'highlight.js/lib/languages/javascript'
 import haml from 'highlight.js/lib/languages/haml'
 
