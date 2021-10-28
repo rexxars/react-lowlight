@@ -37,7 +37,7 @@ describe('react-lowlight', function () {
   it('should render simple JS snippet correct', function () {
     expect(render({ value: '"use strict";' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight">' +
-      '<code class="hljs javascript">' +
+      '<code class="hljs js">' +
       '<span class="hljs-meta">&quot;use strict&quot;</span>;' +
       '</code>' +
       '</pre>'
@@ -62,7 +62,7 @@ describe('react-lowlight', function () {
   })
 
   it('should render value as-is if unable to highlight in auto mode', function () {
-    const code = 'StoriesController stories'
+    const code = 'StoriesController stories = client.Stories;\n'
     expect(render({ value: code }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs">' + code + '</code></pre>'
     )
