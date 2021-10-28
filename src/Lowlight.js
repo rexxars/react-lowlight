@@ -1,11 +1,13 @@
 import { createElement as h } from 'react'
 import PropTypes from 'prop-types'
-import { lowlight as low, lowlight } from 'lowlight'
+import { lowlight as low } from 'lowlight/lib/core.js'
 
 import mapChildren from './mapChildren.js'
 import addMarkers from './addMarkers.js'
 
 let registeredLanguages = 0
+
+console.log(low.listLanguages())
 
 function Lowlight(props) {
   if (process.env.NODE_ENV !== 'production') {
