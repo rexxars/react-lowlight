@@ -1,8 +1,8 @@
 'use strict'
 
-var webpack = require('webpack')
+const webpack = require('webpack')
 
-var config = {
+const config = {
   output: {
     library: 'reactLowlight',
     libraryTarget: 'umd'

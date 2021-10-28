@@ -1,21 +1,21 @@
-var React = require('react')
-var mocha = require('mocha')
-var stderr = require('test-console').stderr
-var ReactDOM = require('react-dom/server')
-var js = require('highlight.js/lib/languages/javascript')
-var haml = require('highlight.js/lib/languages/haml')
-var expect = require('chai').expect
-var Lowlight = require('../')
+const React = require('react')
+const mocha = require('mocha')
+const stderr = require('test-console').stderr
+const ReactDOM = require('react-dom/server')
+const js = require('highlight.js/lib/languages/javascript')
+const haml = require('highlight.js/lib/languages/haml')
+const expect = require('chai').expect
+const Lowlight = require('../')
 
-var describe = mocha.describe
-var before = mocha.before
-var it = mocha.it
+const describe = mocha.describe
+const before = mocha.before
+const it = mocha.it
 
 describe('react-lowlight', function () {
   before('should warn if trying to use unloaded language', function () {
-    var inspect = stderr.inspect()
+    const inspect = stderr.inspect()
 
-    expect(render({value: ''}, {withWrapper: true})).to.equal(
+    expect(render({ value: '' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs"></code></pre>'
     )
 
@@ -31,13 +31,13 @@ describe('react-lowlight', function () {
   })
 
   it('should render empty if no code is given', function () {
-    expect(render({value: ''}, {withWrapper: true})).to.equal(
+    expect(render({ value: '' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs"></code></pre>'
     )
   })
 
   it('should render simple JS snippet correct', function () {
-    expect(render({value: '"use strict";'}, {withWrapper: true})).to.equal(
+    expect(render({ value: '"use strict";' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight">' +
         '<code class="hljs js">' +
         '<span class="hljs-meta">&quot;use strict&quot;</span>;' +
@@ -47,7 +47,7 @@ describe('react-lowlight', function () {
   })
 
   it('should use the specified language', function () {
-    expect(render({value: '', language: 'haml'}, {withWrapper: true})).to.equal(
+    expect(render({ value: '', language: 'haml' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs haml"></code></pre>'
     )
   })
@@ -55,8 +55,8 @@ describe('react-lowlight', function () {
   it('should be able to render inline', function () {
     expect(
       render(
-        {value: 'var foo = "bar"', language: 'js', inline: true, className: 'moop'},
-        {withWrapper: true}
+        { value: 'var foo = "bar"', language: 'js', inline: true, className: 'moop' },
+        { withWrapper: true }
       )
     ).to.equal(
       '<code class="moop" style="display:inline"><span class="hljs-keyword">var</span> foo = <span class="hljs-string">&quot;bar&quot;</span></code>'
@@ -65,15 +65,15 @@ describe('react-lowlight', function () {
 
   it('should render value as-is if unable to highlight in auto mode', function () {
     const code = 'StoriesController stories = client.Stories;\n'
-    expect(render({value: code}, {withWrapper: true})).to.equal(
+    expect(render({ value: code }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs">' + code + '</code></pre>'
     )
   })
 
   it('should be able to highlight specific lines with markers', function () {
     const code = '{\n  title: "Sanity",\n  url: "https://sanity.io/"\n}\n'
-    const markers = [2, {line: 3, className: 'url'}]
-    expect(render({value: code, markers}, {withWrapper: true})).to.equal(
+    const markers = [2, { line: 3, className: 'url' }]
+    expect(render({ value: code, markers }, { withWrapper: true })).to.equal(
       [
         '<pre class="lowlight"><code class="hljs js">{\n<div class="hljs-marker">',
         '  <span class="hljs-attr">title</span>: <span class="hljs-string">',
@@ -86,8 +86,8 @@ describe('react-lowlight', function () {
 })
 
 function render (props, options) {
-  var opts = options || {}
-  var html = opts.reactAttrs
+  const opts = options || {}
+  const html = opts.reactAttrs
     ? ReactDOM.renderToString(React.createElement(Lowlight, props))
     : ReactDOM.renderToStaticMarkup(React.createElement(Lowlight, props))
 

@@ -1,13 +1,13 @@
 'use strict'
 
-var React = require('react')
-var PropTypes = require('prop-types')
-var low = require('lowlight/lib/core')
-var mapChildren = require('./mapChildren')
-var addMarkers = require('./addMarkers')
-var h = React.createElement
+const React = require('react')
+const PropTypes = require('prop-types')
+const low = require('lowlight/lib/core')
+const mapChildren = require('./mapChildren')
+const addMarkers = require('./addMarkers')
+const h = React.createElement
 
-var registeredLanguages = 0
+let registeredLanguages = 0
 
 function Lowlight (props) {
   if (process.env.NODE_ENV !== 'production') {
@@ -19,26 +19,26 @@ function Lowlight (props) {
     }
   }
 
-  var result = props.language
-    ? low.highlight(props.language, props.value, {prefix: props.prefix})
-    : low.highlightAuto(props.value, {prefix: props.prefix, subset: props.subset})
+  const result = props.language
+    ? low.highlight(props.language, props.value, { prefix: props.prefix })
+    : low.highlightAuto(props.value, { prefix: props.prefix, subset: props.subset })
 
-  var codeProps = result.language ? {className: 'hljs ' + result.language} : {className: 'hljs'}
+  const codeProps = result.language ? { className: 'hljs ' + result.language } : { className: 'hljs' }
 
   if (props.inline) {
-    codeProps.style = {display: 'inline'}
+    codeProps.style = { display: 'inline' }
     codeProps.className = props.className
   }
 
-  var ast = result.value
+  let ast = result.value
   if (props.markers && props.markers.length > 0) {
-    ast = addMarkers(ast, {prefix: props.prefix, markers: props.markers})
+    ast = addMarkers(ast, { prefix: props.prefix, markers: props.markers })
   }
 
-  var value = ast.length === 0 ? props.value : ast.map(mapChildren.depth(0))
+  const value = ast.length === 0 ? props.value : ast.map(mapChildren.depth(0))
 
-  var code = h('code', codeProps, value)
-  return props.inline ? code : h('pre', {className: props.className}, code)
+  const code = h('code', codeProps, value)
+  return props.inline ? code : h('pre', { className: props.className }, code)
 }
 
 Lowlight.propTypes = {
