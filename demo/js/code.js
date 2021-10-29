@@ -1,11 +1,12 @@
 'use strict'
 
-function longMoo(count) {
+function longMoo (count) {
   if (count < 1) {
     return ''
   }
 
-  var result = '', pattern = 'oO0o'
+  let result = ''
+  let pattern = 'oO0o'
   while (count > 1) {
     if (count & 1) {
       result += pattern

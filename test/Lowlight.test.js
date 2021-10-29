@@ -28,6 +28,11 @@ describe('react-lowlight', function () {
     Lowlight.registerLanguage('haml', haml)
   })
 
+  it('should be able to check registered language via hasLanguage API', () => {
+    expect(Lowlight.hasLanguage('js')).to.equal(true)
+    expect(Lowlight.hasLanguage('css')).to.equal(false)
+  })
+
   it('should render empty if no code is given', function () {
     expect(render({ value: '' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs"></code></pre>'

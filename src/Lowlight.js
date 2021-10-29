@@ -2,14 +2,12 @@ import { createElement as h } from 'react'
 import PropTypes from 'prop-types'
 import { lowlight as low } from 'lowlight/lib/core.js'
 
-import mapChildren from './mapChildren.js'
+import { mapWithDepth } from './mapChildren.js'
 import addMarkers from './addMarkers.js'
 
 let registeredLanguages = 0
 
-console.log(low.listLanguages())
-
-function Lowlight(props) {
+function Lowlight (props) {
   if (process.env.NODE_ENV !== 'production') {
     if (!props.language && registeredLanguages === 0) {
       console.warn(
@@ -35,7 +33,7 @@ function Lowlight(props) {
     ast = addMarkers(ast, { prefix: props.prefix, markers: props.markers })
   }
 
-  const value = ast.length === 0 ? props.value : ast.map(mapChildren.depth(0))
+  const value = ast.length === 0 ? props.value : ast.map(mapWithDepth(0))
 
   const code = h('code', codeProps, value)
   return props.inline ? code : h('pre', { className: props.className }, code)
@@ -71,7 +69,7 @@ Lowlight.registerLanguage = function () {
 }
 
 Lowlight.hasLanguage = function (lang) {
-  return lowlight.listLanguages().includes(lang)
+  return low.listLanguages().includes(lang)
 }
 
 export default Lowlight
