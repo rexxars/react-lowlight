@@ -5,11 +5,9 @@ import { lowlight as low } from 'lowlight/lib/core.js'
 import { mapWithDepth } from './mapChildren.js'
 import addMarkers from './addMarkers.js'
 
-let registeredLanguages = 0
-
 function Lowlight (props) {
   if (process.env.NODE_ENV !== 'production') {
-    if (!props.language && registeredLanguages === 0) {
+    if (!props.language && low.listLanguages().length === 0) {
       console.warn(
         'No language definitions seems to be registered, ' +
         'did you forget to call `Lowlight.registerLanguage`?'
@@ -63,10 +61,7 @@ Lowlight.defaultProps = {
   prefix: 'hljs-'
 }
 
-Lowlight.registerLanguage = function () {
-  registeredLanguages++
-  low.registerLanguage.apply(low, arguments)
-}
+Lowlight.registerLanguage = low.registerLanguage
 
 Lowlight.hasLanguage = function (lang) {
   return low.listLanguages().includes(lang)
