@@ -27,7 +27,7 @@ function Lowlight (props) {
   }
 
   let ast = result.children
-  if (props.markers && props.markers.length > 0) {
+  if (props.markers && props.markers.length && ast.length) {
     ast = addMarkers(ast, { prefix: props.prefix, markers: props.markers })
   }
 
