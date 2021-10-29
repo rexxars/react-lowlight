@@ -8,7 +8,7 @@ export default defineConfig({
     port: 7777
   },
   build: {
-    outDir: './build-demo'
+    outDir: 'build'
   },
   plugins: [
     react()
