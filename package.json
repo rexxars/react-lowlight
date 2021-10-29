@@ -48,7 +48,7 @@
   },
   "standard": {
     "ignore": [
-      "/umd"
+      "demo/js/code.js"
     ]
   }
 }

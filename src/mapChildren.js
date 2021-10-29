@@ -2,30 +2,19 @@ import { createElement } from 'react'
 
 function mapChild (child, i, depth) {
   if (child.tagName) {
-    return createElement(
-      child.tagName,
-      assign({ key: 'lo-' + depth + '-' + i }, child.properties),
-      child.children && child.children.map(mapWithDepth(depth + 1))
-    )
+    const props = Object.assign({ key: 'lo-' + depth + '-' + i }, child.properties)
+    const children = child.children ? child.children.map(mapWithDepth(depth + 1)) : null
+
+    return createElement(child.tagName, props, children)
   }
 
   return child.value
 }
 
-function mapWithDepth (depth) {
-  return function mapChildrenWithDepth (child, i) {
+export const mapWithDepth = (depth) => {
+  const mapChildrenWithDepth = (child, i) => {
     return mapChild(child, i, depth)
   }
-}
 
-function assign (dst, src) {
-  for (const key in src) {
-    dst[key] = src[key]
-  }
-
-  return dst
-}
-
-export default {
-  depth: mapWithDepth
+  return mapChildrenWithDepth
 }
