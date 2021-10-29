@@ -24,7 +24,8 @@
     "posttest": "npm run lint",
     "test": "mocha --reporter spec",
     "coverage": "nyc npm run test",
-    "serve": "vite"
+    "serve": "vite",
+    "build": "vite build"
   },
   "peerDependencies": {
     "highlight.js": "^11.0.0",

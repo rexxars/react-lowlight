@@ -38,4 +38,4 @@ demo/js/demo.min.js.map
 
 # Build
 dist/
-build-demo/
+build/
