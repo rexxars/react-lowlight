@@ -63,7 +63,7 @@ Lowlight.defaultProps = {
 
 Lowlight.registerLanguage = low.registerLanguage
 
-Lowlight.hasLanguage = function (lang) {
+Lowlight.hasLanguage = (lang) => {
   return low.listLanguages().includes(lang)
 }
 
