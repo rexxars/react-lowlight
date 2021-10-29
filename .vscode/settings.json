@@ -1,3 +1,4 @@
 {
+  // Align with standard.js
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true
 }
