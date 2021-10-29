@@ -1,6 +1,4 @@
-const lineNumberify = function lineNumberify (ast) {
-  let lineNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1
-
+const lineNumberify = (ast, lineNumber = 1) => {
   return ast.reduce(function (result, node) {
     if (node.type === 'text') {
       if (node.value.indexOf('\n') === -1) {
@@ -38,6 +36,7 @@ const lineNumberify = function lineNumberify (ast) {
 
 const wrapLines = function wrapLines (ast, markers, options) {
   let i = 0
+
   const wrapped = markers.reduce(function (nodes, marker) {
     const line = marker.line
     const children = []
@@ -75,10 +74,10 @@ const wrapLines = function wrapLines (ast, markers, options) {
   return wrapped
 }
 
-export default function (ast, options) {
-  const markers = options.markers.map(function (marker) {
+const addMarkers = (ast, options) => {
+  const markers = options.markers.map((marker) => {
     return marker.line ? marker : { line: marker }
-  }).sort(function (nodeA, nodeB) {
+  }).sort((nodeA, nodeB) => {
     return nodeA.line - nodeB.line
   })
 
@@ -86,3 +85,5 @@ export default function (ast, options) {
   const wrapped = wrapLines(numbered, markers, options)
   return wrapped
 }
+
+export default addMarkers
