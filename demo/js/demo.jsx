@@ -4,17 +4,22 @@ import ReactDOM from 'react-dom'
 import Lowlight from '../../src/Lowlight'
 import javascript from 'highlight.js/lib/languages/javascript'
 
+import '../css/demo.css'
+import 'highlight.js/styles/base16/solarized-dark.css'
+
+import code from './code.js?raw'
+
 Lowlight.registerLanguage('js', javascript)
 
 const App = () => {
-  const [value, setValue] = useState(getDefaultValue())
+  const [value, setValue] = useState(code)
 
   const handleChange = (e) => {
     setValue(e.target.value)
   }
 
   return (
-    <div>
+    <div className='container'>
       <div className='input'>
         <h1>Input</h1>
         <textarea value={value} onChange={handleChange} />
@@ -31,30 +36,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 )
-
-// Hiding this ugliness down here.
-function getDefaultValue () {
-  return [
-    '\'use strict\'\n',
-
-    'function longMoo(count) {',
-    '  if (count < 1) {',
-    '    return \'\'',
-    '  }\n',
-
-    '  var result = \'\', pattern = \'oO0o\'',
-    '  while (count > 1) {',
-    '    if (count & 1) {',
-    '      result += pattern',
-    '    }\n',
-
-    '    count >>= 1, pattern += pattern',
-    '  }\n',
-
-    '  return \'M\' + result + pattern',
-    '}\n',
-
-    'console.log(longMoo(5))',
-    '// "MoO0ooO0ooO0ooO0ooO0o"'
-  ].join('\n')
-}
