@@ -2,21 +2,22 @@
 
 Syntax highlighter for React, utilizing VDOM for efficient updates
 
-[![npm version](http://img.shields.io/npm/v/react-lowlight.svg?style=flat-square)](http://browsenpm.org/package/react-lowlight)[![Build Status](http://img.shields.io/travis/rexxars/react-lowlight/master.svg?style=flat-square)](https://travis-ci.org/rexxars/react-lowlight)
+[![npm version](https://badgen.net/npm/v/express?style=flat-square)](https://npmjs.com/package/react-lowlight)
+[![Tests](https://github.com/rexxars/react-lowlight/actions/workflows/tests.yml/badge.svg)](https://github.com/rexxars/react-lowlight/actions/workflows/tests.yml)
 
-* Thin wrapper on top of [lowlight](https://github.com/wooorm/lowlight) (Syntax highlighting using VDOM)
-* Lowlight uses [highlight.js](https://github.com/isagalaev/highlight.js) under the hood, thus supports all the same syntaxes
-* About ~18KB (6.5KB gziped) when using a single language syntax. Each language tends to pack on another ~2KB uncompressed.
+- Thin wrapper on top of [lowlight](https://github.com/wooorm/lowlight) (Syntax highlighting using VDOM)
+- Lowlight uses [highlight.js](https://github.com/isagalaev/highlight.js) under the hood, thus supports all the same syntaxes
+- About ~18KB (6.5KB gziped) when using a single language syntax. Each language tends to pack on another ~2KB uncompressed.
 
 Feel free to check out a [super-simple demo](http://rexxars.github.io/react-lowlight/).
 
 ## Installation
 
-```
-npm install --save react-lowlight highlight.js
+```bash
+$ npm i react-lowlight highlight.js
 ```
 
-You'll also need to provide the [highlight.js](https://github.com/isagalaev/highlight.js/blob/master/docs/css-classes-reference.rst#language-names-and-aliases) language definitions you want to use. We don't bundle these in order to not bloat the component with unused definitions.
+You'll also need to provide the [highlight.js](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md) language definitions you want to use. We don't bundle these in order to not bloat the component with unused definitions.
 
 ## Usage
 
@@ -24,17 +25,14 @@ You'll also need to provide the [highlight.js](https://github.com/isagalaev/high
 import Lowlight from 'react-lowlight'
 
 // Load any languages you want to use
-// (see https://github.com/isagalaev/highlight.js/tree/master/src/languages)
-import js from 'highlight.js/lib/languages/javascript'
+// (see https://github.com/highlightjs/highlight.js/tree/main/src/languages)
+import javascript from 'highlight.js/lib/languages/javascript'
 
 // Then register them with lowlight
-Lowlight.registerLanguage('js', js)
+Lowlight.registerLanguage('js', javascript)
 
 ReactDOM.render(
-  <Lowlight
-    language="js"
-    value="/* Code to highlight */"
-  />,
+  <Lowlight language="js" value="/* Code to highlight */" />,
   document.getElementById('target')
 )
 ```
@@ -43,12 +41,12 @@ Note that the `language` property is optional, but significantly increases the s
 
 ## Styling
 
-Stylesheets are not automatically handled for you - but there is [a bunch of premade styles](https://github.com/isagalaev/highlight.js/tree/master/src/styles) for highlight.js which you can simply drop in and they'll "just work". You can either grab these from the source, of pull them in using a CSS loader - whatever works best for you. They're also available on [cdnjs](https://cdnjs.com/libraries/highlight.js):
+Stylesheets are not automatically handled for you - but there is [a bunch of premade styles](https://github.com/highlightjs/highlight.js/tree/main/src/styles) for highlight.js which you can simply drop in and they'll "just work". You can either grab these from the source, of pull them in using a CSS loader - whatever works best for you. They're also available on [cdnjs](https://cdnjs.com/libraries/highlight.js):
 
 ```html
 <link
   rel="stylesheet"
-  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css"
 />
 ```
 
@@ -57,7 +55,7 @@ Note that when using the `markers` feature, there is an additional class name ca
 ## Props
 
 | Name        | Description                                                                               |
-|:------------|:------------------------------------------------------------------------------------------|
+| :---------- | :---------------------------------------------------------------------------------------- |
 | `className` | Class name for the outermost `pre` tag. Default: `lowlight`                               |
 | `language`  | Language to use for syntax highlighting this value. Must be registered prior to usage.    |
 | `value`     | The code snippet to syntax highlight                                                      |
@@ -68,8 +66,8 @@ Note that when using the `markers` feature, there is an additional class name ca
 
 ## Dynamic loading
 
-You can use `Lowlight.hasLanguage(language)` to check if a language has been registered. Combining this with Webpack's [code splitting abilities](https://webpack.github.io/docs/code-splitting.html) (or something similar), you should be able to load definitions for languages on the fly.
+You can use `Lowlight.hasLanguage(language)` to check if a language has been registered. Combining this with Webpack's [code splitting abilities](https://webpack.js.org/guides/code-splitting/) (or something similar), you should be able to load definitions for languages on the fly.
 
 ## License
 
-MIT-licensed. See LICENSE.
+MIT-licensed. See [LICENSE](./LICENSE).
