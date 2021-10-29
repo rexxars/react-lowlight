@@ -9,8 +9,8 @@ import haml from 'highlight.js/lib/languages/haml.js'
 
 import Lowlight from '../src/Lowlight.js'
 
-describe('react-lowlight', function () {
-  before('should warn if trying to use unloaded language', function () {
+describe('react-lowlight', () => {
+  before('should warn if trying to use unloaded language', () => {
     const inspect = stderr.inspect()
 
     expect(render({ value: '' }, { withWrapper: true })).to.equal(
@@ -23,7 +23,7 @@ describe('react-lowlight', function () {
     ])
   })
 
-  before('should allow registering languages through API', function () {
+  before('should allow registering languages through API', () => {
     Lowlight.registerLanguage('js', javascript)
     Lowlight.registerLanguage('haml', haml)
   })
@@ -33,13 +33,13 @@ describe('react-lowlight', function () {
     expect(Lowlight.hasLanguage('css')).to.equal(false)
   })
 
-  it('should render empty if no code is given', function () {
+  it('should render empty if no code is given', () => {
     expect(render({ value: '' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs"></code></pre>'
     )
   })
 
-  it('should render simple JS snippet correct', function () {
+  it('should render simple JS snippet correct', () => {
     expect(render({ value: '"use strict";' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight">' +
       '<code class="hljs js">' +
@@ -49,13 +49,13 @@ describe('react-lowlight', function () {
     )
   })
 
-  it('should use the specified language', function () {
+  it('should use the specified language', () => {
     expect(render({ value: '', language: 'haml' }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs haml"></code></pre>'
     )
   })
 
-  it('should be able to render inline', function () {
+  it('should be able to render inline', () => {
     expect(
       render(
         { value: 'var foo = "bar"', language: 'js', inline: true, className: 'moop' },
@@ -66,14 +66,14 @@ describe('react-lowlight', function () {
     )
   })
 
-  it('should render value as-is if unable to highlight in auto mode', function () {
+  it('should render value as-is if unable to highlight in auto mode', () => {
     const code = 'StoriesController stories = client.Stories;\n'
     expect(render({ value: code }, { withWrapper: true })).to.equal(
       '<pre class="lowlight"><code class="hljs">' + code + '</code></pre>'
     )
   })
 
-  it('should be able to highlight specific lines with markers', function () {
+  it('should be able to highlight specific lines with markers', () => {
     const code = '{\n  title: "Sanity",\n  url: "https://sanity.io/"\n}\n'
     const markers = [2, { line: 3, className: 'url' }]
     expect(render({ value: code, markers, language: 'js' }, { withWrapper: true })).to.equal(
@@ -88,13 +88,12 @@ describe('react-lowlight', function () {
   })
 })
 
-function render (props, options) {
-  const opts = options || {}
-  const html = opts.reactAttrs
+function render (props, options = {}) {
+  const html = options.reactAttrs
     ? ReactDOM.renderToString(React.createElement(Lowlight, props))
     : ReactDOM.renderToStaticMarkup(React.createElement(Lowlight, props))
 
-  if (!opts.withWrapper) {
+  if (!options.withWrapper) {
     return html.replace(/.*?<code.*?>([\s\S]*)<\/code>.*/g, '$1')
   }
 
