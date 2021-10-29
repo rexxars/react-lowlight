@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/server.js'
 import { stderr } from 'test-console'
 import { expect } from 'chai'
 
-import javascript from 'highlight.js/lib/languages/javascript'
-import haml from 'highlight.js/lib/languages/haml'
+import javascript from 'highlight.js/lib/languages/javascript.js'
+import haml from 'highlight.js/lib/languages/haml.js'
 
 import Lowlight from '../src/Lowlight.js'
 
