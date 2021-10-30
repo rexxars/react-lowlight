@@ -39,6 +39,26 @@ ReactDOM.render(
 
 Note that the `language` property is optional, but significantly increases the speed and reliability of rendering.
 
+If you want to load multiple languages at once
+
+```bash
+$ npm i lowlight
+```
+
+```js
+import Lowlight from 'react-lowlight'
+
+// https://github.com/wooorm/lowlight#syntaxes
+import 'lowlight/lib/common'
+// or to import all languages
+// import 'lowlight/lib/all'
+
+ReactDOM.render(
+  <Lowlight language="js" value="/* Code to highlight */" />,
+  document.getElementById('target')
+)
+```
+
 ## Styling
 
 Stylesheets are not automatically handled for you - but there is [a bunch of premade styles](https://github.com/highlightjs/highlight.js/tree/main/src/styles) for highlight.js which you can simply drop in and they'll "just work". You can either grab these from the source, of pull them in using a CSS loader - whatever works best for you. They're also available on [cdnjs](https://cdnjs.com/libraries/highlight.js):
