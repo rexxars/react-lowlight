@@ -18,5 +18,4 @@ function longMoo (count) {
   return 'M' + result + pattern
 }
 
-console.log(longMoo(5))
-// "MoO0ooO0ooO0ooO0ooO0o"
+console.log(longMoo(5)) // -> "MoO0ooO0ooO0ooO0ooO0o"
