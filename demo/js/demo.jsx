@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-import Lowlight from '../../src/Lowlight.js'
-import '../../common.js'
+import Lowlight from '../../src/Lowlight'
+import '../../src/common.js'
 
 import '../css/demo.css'
+import 'highlight.js/styles/base16/solarized-dark.css'
 
 import code from './code.js?raw'
 
