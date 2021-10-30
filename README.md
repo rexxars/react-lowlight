@@ -41,23 +41,19 @@ Note that the `language` property is optional, but significantly increases the s
 
 If you want to load multiple languages at once
 
-```bash
-$ npm i lowlight
-```
-
 ```js
 import Lowlight from 'react-lowlight'
 
-// https://github.com/wooorm/lowlight#syntaxes
-import 'lowlight/lib/common'
-// or to import all languages
-// import 'lowlight/lib/all'
+import 'react-lowlight/common.js'
+// import 'react-lowlight/all.js' // <- to import all languages
 
 ReactDOM.render(
   <Lowlight language="js" value="/* Code to highlight */" />,
   document.getElementById('target')
 )
 ```
+
+Imports `react-lowlight/common.js` and `react-lowlight/all.js` are re-exports from lowlight. See here https://github.com/wooorm/lowlight#syntaxes for more details
 
 ## Styling
 
