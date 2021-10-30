@@ -12,9 +12,12 @@
   "module": "./src/Lowlight.js",
   "exports": {
     ".": "./src/Lowlight.js",
-    "./common.js": "./common.js",
-    "./all.js": "./all.js"
+    "./common": "./src/common.js",
+    "./all": "./src/all.js"
   },
+  "files": [
+    "src"
+  ],
   "keywords": [
     "react",
     "highlight",
