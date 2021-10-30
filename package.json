@@ -10,7 +10,11 @@
   "type": "module",
   "main": "./src/Lowlight.js",
   "module": "./src/Lowlight.js",
-  "exports": "./src/Lowlight.js",
+  "exports": {
+    ".": "./src/Lowlight.js",
+    "./common.js": "./common.js",
+    "./all.js": "./all.js"
+  },
   "keywords": [
     "react",
     "highlight",
@@ -30,6 +34,11 @@
   "peerDependencies": {
     "highlight.js": "^11.0.0",
     "react": ">=0.14.0"
+  },
+  "peerDependenciesMeta": {
+    "highlight.js": {
+      "optional": true
+    }
   },
   "dependencies": {
     "lowlight": "^2.4.0",
