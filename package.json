@@ -44,7 +44,7 @@
     }
   },
   "dependencies": {
-    "lowlight": "^2.4.0",
+    "lowlight": "^2.4.1",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
