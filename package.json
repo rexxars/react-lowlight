@@ -44,8 +44,7 @@
     }
   },
   "dependencies": {
-    "lowlight": "^2.4.1",
-    "prop-types": "^15.7.2"
+    "lowlight": "^2.4.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.1.0",
