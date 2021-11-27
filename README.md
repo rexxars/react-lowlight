@@ -69,6 +69,12 @@ Stylesheets are **not** automatically handled for you - but there is [a bunch of
 />
 ```
 
+If you have a bundler that supports CSS imports, you can do something like the following:
+
+```js
+import 'highlight.js/styles/default.css'
+```
+
 Note that when using the `markers` feature, there is an additional class name called `hljs-marker` which is not defined by highlight js as it's not a part of its feature set. You can either set it yourself, or you can explicitly set class names on markers.
 
 ## Props
