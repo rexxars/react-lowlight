@@ -47,8 +47,8 @@ If you want to load multiple languages at once
 ```js
 import Lowlight from 'react-lowlight'
 
-import 'react-lowlight/common.js'
-// import 'react-lowlight/all.js' // <- to import all languages
+import 'react-lowlight/common'
+// import 'react-lowlight/all' // <- to import all languages
 
 ReactDOM.render(
   <Lowlight language="js" value="/* Code to highlight */" />,
@@ -56,7 +56,7 @@ ReactDOM.render(
 )
 ```
 
-Imports `react-lowlight/common.js` and `react-lowlight/all.js` are re-exports from lowlight. See here https://github.com/wooorm/lowlight#syntaxes for more details
+Imports `react-lowlight/common` and `react-lowlight/all` are re-exports from lowlight. See here https://github.com/wooorm/lowlight#syntaxes for more details
 
 ## Styling
 
