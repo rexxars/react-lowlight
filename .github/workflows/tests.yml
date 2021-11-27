@@ -27,5 +27,5 @@ jobs:
 
       - run: node --version
       - run: npm --version
-      - run: npm ci
+      - run: npm i
       - run: npm run coverage
