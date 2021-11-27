@@ -60,5 +60,13 @@
     "ignore": [
       "demo/js/code.js"
     ]
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageProvider": "v8",
+    "testEnvironment": "jsdom",
+    "verbose": true
   }
 }
