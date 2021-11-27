@@ -60,7 +60,7 @@ Imports `react-lowlight/common.js` and `react-lowlight/all.js` are re-exports fr
 
 ## Styling
 
-Stylesheets are not automatically handled for you - but there is [a bunch of premade styles](https://github.com/highlightjs/highlight.js/tree/main/src/styles) for highlight.js which you can simply drop in and they'll "just work". You can either grab these from the source, of pull them in using a CSS loader - whatever works best for you. They're also available on [cdnjs](https://cdnjs.com/libraries/highlight.js):
+Stylesheets are **not** automatically handled for you - but there is [a bunch of premade styles](https://github.com/highlightjs/highlight.js/tree/main/src/styles) for highlight.js which you can simply drop in and they'll "just work". You can either grab these from the source, of pull them in using a CSS loader - whatever works best for you. They're also available on [cdnjs](https://cdnjs.com/libraries/highlight.js):
 
 ```html
 <link
