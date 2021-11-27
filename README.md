@@ -13,8 +13,11 @@ Feel free to check out a [super-simple demo](http://rexxars.github.io/react-lowl
 
 ## Installation
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm](https://docs.npmjs.com/cli/install):
+
 ```bash
-$ npm i react-lowlight highlight.js
+$ npm install react-lowlight highlight.js
 ```
 
 You'll also need to provide the [highlight.js](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md) language definitions you want to use. We don't bundle these in order to not bloat the component with unused definitions.
