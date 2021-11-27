@@ -2,7 +2,7 @@
 
 Syntax highlighter for React, utilizing VDOM for efficient updates
 
-[![npm version](https://badgen.net/npm/v/express?style=flat-square)](https://npmjs.com/package/react-lowlight)
+[![npm version](https://badgen.net/npm/v/react-lowlight?style=flat-square)](https://npmjs.com/package/react-lowlight)
 [![Tests](https://github.com/rexxars/react-lowlight/actions/workflows/tests.yml/badge.svg)](https://github.com/rexxars/react-lowlight/actions/workflows/tests.yml)
 
 - Thin wrapper on top of [lowlight](https://github.com/wooorm/lowlight) (Syntax highlighting using VDOM)
