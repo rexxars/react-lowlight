@@ -1,11 +1,11 @@
-import { createElement as h } from 'react'
+import { createElement as h, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 import { lowlight as low } from 'lowlight/lib/core.js'
 
 import { mapWithDepth } from './mapChildren.js'
 import addMarkers from './addMarkers.js'
 
-function Lowlight (props) {
+const Lowlight = forwardRef((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     if (!props.language && low.listLanguages().length === 0) {
       console.warn(
@@ -19,13 +19,6 @@ function Lowlight (props) {
     ? low.highlight(props.language, props.value, { prefix: props.prefix })
     : low.highlightAuto(props.value, { prefix: props.prefix, subset: props.subset })
 
-  const codeProps = result.data.language ? { className: 'hljs ' + result.data.language } : { className: 'hljs' }
-
-  if (props.inline) {
-    codeProps.style = { display: 'inline' }
-    codeProps.className = props.className
-  }
-
   let ast = result.children
   if (props.markers && props.markers.length && ast.length) {
     ast = addMarkers(ast, { prefix: props.prefix, markers: props.markers })
@@ -33,9 +26,32 @@ function Lowlight (props) {
 
   const value = ast.length === 0 ? props.value : ast.map(mapWithDepth(0))
 
+  const codeProps = {
+    className: 'hljs',
+    style: {},
+    ref: null
+  }
+
+  const preProps = {
+    ref,
+    className: props.className
+  }
+
+  if (result.data.language) {
+    codeProps.className += (' ' + result.data.language)
+  }
+
+  if (props.inline) {
+    codeProps.style = { display: 'inline' }
+    codeProps.className = props.className
+    codeProps.ref = ref
+  }
+
   const code = h('code', codeProps, value)
-  return props.inline ? code : h('pre', { className: props.className }, code)
-}
+  return props.inline ? code : h('pre', preProps, code)
+})
+
+Lowlight.displayName = 'Lowlight'
 
 Lowlight.propTypes = {
   className: PropTypes.string,
