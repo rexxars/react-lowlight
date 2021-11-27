@@ -41,6 +41,7 @@ body {
 
 .hljs {
   border-radius: 2px;
+  flex: 1;
 }
 
 h1 {
@@ -55,4 +56,10 @@ h1 {
 
 pre {
   margin: 0;
+}
+
+.lowlight {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
