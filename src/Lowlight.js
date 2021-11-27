@@ -1,5 +1,4 @@
 import { createElement as h, forwardRef } from 'react'
-import PropTypes from 'prop-types'
 import { lowlight as low } from 'lowlight/lib/core.js'
 
 import { mapWithDepth } from './mapChildren.js'
@@ -52,24 +51,6 @@ const Lowlight = forwardRef((props, ref) => {
 })
 
 Lowlight.displayName = 'Lowlight'
-
-Lowlight.propTypes = {
-  className: PropTypes.string,
-  inline: PropTypes.bool,
-  language: PropTypes.string,
-  prefix: PropTypes.string,
-  subset: PropTypes.arrayOf(PropTypes.string),
-  value: PropTypes.string.isRequired,
-  markers: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.shape({
-        line: PropTypes.number.isRequired,
-        className: PropTypes.string
-      })
-    ])
-  )
-}
 
 Lowlight.defaultProps = {
   className: 'lowlight',
