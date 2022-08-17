@@ -1,11 +1,11 @@
 import { describe, it, expect, jest } from '@jest/globals'
 import React from 'react'
-import ReactDOM from 'react-dom/server.js'
+import ReactDOM from 'react-dom/server'
 
-import javascript from 'highlight.js/lib/languages/javascript.js'
-import haml from 'highlight.js/lib/languages/haml.js'
+import javascript from 'highlight.js/lib/languages/javascript'
+import haml from 'highlight.js/lib/languages/haml'
 
-import Lowlight from '../src/Lowlight.js'
+import Lowlight from '../src/Lowlight'
 
 describe('react-lowlight', () => {
   it('should warn if trying to use unloaded language', () => {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 import Lowlight from '../../src/Lowlight'
 import '../../src/common.js'
@@ -30,4 +30,5 @@ const App = () => {
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const root = createRoot(document.getElementById('root'))
+root.render(<App />)

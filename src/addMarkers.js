@@ -31,7 +31,7 @@ const lineNumberify = (ast, lineNumber = 1) => {
 
     result.nodes.push(node)
     return result
-  }, { nodes: [], lineNumber: lineNumber })
+  }, { nodes: [], lineNumber })
 }
 
 const wrapLines = function wrapLines (ast, markers, options) {
@@ -60,7 +60,7 @@ const wrapLines = function wrapLines (ast, markers, options) {
       type: 'element',
       tagName: 'div',
       properties: { className: [marker.className || (options.prefix + 'marker')] },
-      children: children,
+      children,
       lineNumber: line
     })
 

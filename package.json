@@ -47,14 +47,14 @@
     "lowlight": "^2.4.1"
   },
   "devDependencies": {
-    "@jest/globals": "^27.3.1",
-    "@vitejs/plugin-react": "^1.1.0",
-    "highlight.js": "^11.3.1",
-    "jest": "^27.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "standard": "^16.0.4",
-    "vite": "^2.6.14"
+    "@jest/globals": "^28.1.3",
+    "@vitejs/plugin-react": "^2.0.1",
+    "highlight.js": "^11.6.0",
+    "jest": "^28.1.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "standard": "^17.0.0",
+    "vite": "^3.0.8"
   },
   "standard": {
     "ignore": [
@@ -66,7 +66,7 @@
     "collectCoverage": true,
     "coverageDirectory": "coverage",
     "coverageProvider": "v8",
-    "testEnvironment": "jsdom",
+    "testEnvironment": "node",
     "verbose": true
   }
 }
