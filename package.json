@@ -2,7 +2,10 @@
   "name": "react-lowlight",
   "version": "3.0.0",
   "description": "Super-thin React wrapper for lowlight (Syntax highlighting using VDOM)",
-  "sideEffects": false,
+  "sideEffects": [
+    "./src/common.js",
+    "./src/all.js"
+  ],
   "license": "MIT",
   "repository": "https://github.com/rexxars/react-lowlight.git",
   "bugs": "https://github.com/rexxars/react-lowlight/issues",
