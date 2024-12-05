@@ -4,7 +4,14 @@ import { lowlight as low } from 'lowlight/lib/core.js'
 import { mapWithDepth } from './mapChildren.js'
 import addMarkers from './addMarkers.js'
 
-const Lowlight = forwardRef((props, ref) => {
+const defaultProps = {
+  className: 'lowlight',
+  inline: false,
+  prefix: 'hljs-'
+}
+
+const Lowlight = forwardRef((rawProps, ref) => {
+  const props = { ...defaultProps, ...rawProps }
   if (process.env.NODE_ENV !== 'production') {
     if (!props.language && low.listLanguages().length === 0) {
       console.warn(
@@ -51,12 +58,6 @@ const Lowlight = forwardRef((props, ref) => {
 })
 
 Lowlight.displayName = 'Lowlight'
-
-Lowlight.defaultProps = {
-  className: 'lowlight',
-  inline: false,
-  prefix: 'hljs-'
-}
 
 Lowlight.registerLanguage = low.registerLanguage
 
