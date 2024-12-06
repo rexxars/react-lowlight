@@ -31,7 +31,7 @@
   ],
   "scripts": {
     "lint": "standard",
-    "prepublishOnly": "npm run test",
+    "prepublishOnly": "vitest --run",
     "posttest": "npm run lint",
     "test": "vitest",
     "serve": "vite",
