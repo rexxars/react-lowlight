@@ -1,4 +1,4 @@
-import { describe, it, expect, jest } from '@jest/globals'
+import { describe, it, expect, vi } from 'vitest'
 import React from 'react'
 import ReactDOM from 'react-dom/server'
 
@@ -10,7 +10,7 @@ import Lowlight from '../src/Lowlight'
 describe('react-lowlight', () => {
   it('should warn if trying to use unloaded language', () => {
     const originalConsoleWarn = console.warn
-    console.warn = jest.fn()
+    console.warn = vi.fn()
 
     expect(render({ value: '' }, { withWrapper: true })).toBe(
       '<pre class="lowlight"><code class="hljs"></code></pre>'
