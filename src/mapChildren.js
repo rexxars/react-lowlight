@@ -3,6 +3,11 @@ import { createElement } from 'react'
 function mapChild (child, i, depth) {
   if (child.tagName) {
     const props = Object.assign({ key: 'lo-' + depth + '-' + i }, child.properties)
+
+    if (Array.isArray(props.className)) {
+      props.className = props.className.join(' ')
+    }
+
     const children = child.children ? child.children.map(mapWithDepth(depth + 1)) : null
 
     return createElement(child.tagName, props, children)

@@ -86,6 +86,14 @@ describe('react-lowlight', () => {
       ].join('')
     )
   })
+
+  it('should properly join array-based class names in child elements', () => {
+    const code = 'function foo() {}'
+
+    expect(render({ value: code, language: 'js' }, { withWrapper: true })).toBe(
+      '<pre class="lowlight"><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params"></span>) {}</code></pre>'
+    )
+  })
 })
 
 function render (props, options = {}) {
