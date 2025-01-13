@@ -1,6 +1,6 @@
 {
   "name": "react-lowlight",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Super-thin React wrapper for lowlight (Syntax highlighting using VDOM)",
   "sideEffects": [
     "./src/common.js",
