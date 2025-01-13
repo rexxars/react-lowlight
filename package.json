@@ -16,11 +16,24 @@
   "author": "Espen Hovlandsdal <espen@hovlandsdal.com>",
   "type": "module",
   "main": "./src/Lowlight.js",
+  "types": "./src/Lowlight.d.ts",
   "module": "./src/Lowlight.js",
   "exports": {
-    ".": "./src/Lowlight.js",
-    "./common": "./src/common.js",
-    "./all": "./src/all.js"
+    ".": {
+      "types": "./src/Lowlight.d.ts",
+      "import": "./src/Lowlight.js",
+      "default": "./src/Lowlight.js"
+    },
+    "./common": {
+      "types": "./src/common.d.ts",
+      "import": "./src/common.js",
+      "default": "./src/common.js"
+    },
+    "./all": {
+      "types": "./src/all.d.ts",
+      "import": "./src/all.js",
+      "default": "./src/all.js"
+    }
   },
   "files": [
     "src"
