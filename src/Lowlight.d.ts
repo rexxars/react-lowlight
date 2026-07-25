@@ -1,6 +1,6 @@
 interface LowlightMarker {
     line: number;
-    className?: number;
+    className?: string;
 }
 interface LowlightProps {
     className?: string;
